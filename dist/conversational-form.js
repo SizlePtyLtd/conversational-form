@@ -4785,6 +4785,9 @@ var cf;
          * We depend on scroll in a column-reverse flex container. This is where Edge and Firefox comes up short
          */
         ChatResponse.prototype.hasFlexBug = function () {
+            if (!this.cfReference || !this.cfReference.el) {
+                return false;
+            }
             return this.cfReference.el.classList.contains('browser-firefox') || this.cfReference.el.classList.contains('browser-edge');
         };
         ChatResponse.prototype.animateIn = function () {
